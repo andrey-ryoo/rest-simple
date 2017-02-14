@@ -3,10 +3,10 @@
 Rest-simple is a minimalistic library that simplifies REST requests. It's based on Jersey Client and Jackson
 
 Usage:
-
+```java
 RestSimple.get(url).getRawResponse();  // Raw Response returns an object containing Entity, Status, headers, cookies etc
 RestSimple.post(url).field("name", "value").file(yourFile).getRawResponse();
-...
+```
 
 Todo:
   * Add post strings as entities
