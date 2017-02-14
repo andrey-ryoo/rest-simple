@@ -14,7 +14,7 @@ Todo:
   * Add other methods (HEAD, OPTION, PATCH...)
   
 How to import with Maven:
-
+<code>
   <repositories>
         <repository>
             <snapshots>
@@ -31,5 +31,6 @@ How to import with Maven:
             <artifactId>rest-simple</artifactId>
             <version>1.0.0</version>
    </dependency>
+</code>
    
 The library is in its begining stage.
