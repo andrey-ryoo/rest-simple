@@ -30,7 +30,7 @@ How to import with Maven:
    <dependency>
             <groupId>pro.ryoo</groupId>
             <artifactId>rest-simple</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
    </dependency>
 ```
    
