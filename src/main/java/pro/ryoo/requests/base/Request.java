@@ -4,6 +4,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Cookie;
+import javax.ws.rs.core.Response;
 import java.util.*;
 
 public abstract class Request<T> {
@@ -11,6 +12,7 @@ public abstract class Request<T> {
     protected Client client;
     protected WebTarget target;
     protected Invocation.Builder request;
+    protected Response response;
 
     protected String url;
 

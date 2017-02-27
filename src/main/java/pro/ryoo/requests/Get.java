@@ -31,11 +31,14 @@ public class Get extends Request<Get> {
 
     public Response getRawResponse() {
         applyProperties();
-        return request.get();
+        response = request.get();
+        return response;
     }
 
     public String getAsString() {
-        return getRawResponse().readEntity(String.class);
+        String result = getRawResponse().readEntity(String.class);
+        response.close();
+        return result;
     }
 
     public JsonNode getMapped() throws IOException {

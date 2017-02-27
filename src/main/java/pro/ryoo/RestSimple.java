@@ -36,5 +36,4 @@ public class RestSimple {
         }
         return new Delete(url, config);
     }
-
 }

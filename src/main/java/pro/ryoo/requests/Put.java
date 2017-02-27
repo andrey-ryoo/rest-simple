@@ -42,11 +42,14 @@ public class Put extends Request<Put> {
         target = client.target(url);
         request = target.request(WILDCARD);
         applyProperties();
-        return request.put(Entity.entity(payload, APPLICATION_JSON_TYPE));
+        response = request.put(Entity.entity(payload, APPLICATION_JSON_TYPE));
+        return response;
     }
 
     public String getAsString() {
-        return getRawResponse().readEntity(String.class);
+        String result = getRawResponse().readEntity(String.class);
+        response.close();
+        return result;
     }
 
     public JsonNode getMapped() throws IOException {

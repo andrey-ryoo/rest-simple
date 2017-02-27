@@ -31,11 +31,14 @@ public class Delete extends Request<Delete> {
 
     public Response getRawResponse() {
         applyProperties();
-        return request.delete();
+        response = request.delete();
+        return response;
     }
 
     public String getAsString() {
-        return getRawResponse().readEntity(String.class);
+        String result = getRawResponse().readEntity(String.class);
+        response.close();
+        return result;
     }
 
     public JsonNode getMapped() throws IOException {

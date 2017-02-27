@@ -63,18 +63,22 @@ public class Post extends Request<Post> {
             request = target.request();
             MultiPart form = composeMultipart();
             applyProperties();
-            return request.post(Entity.entity(form, MULTIPART_FORM_DATA_TYPE));
+            response = request.post(Entity.entity(form, MULTIPART_FORM_DATA_TYPE));
+            return response;
         }
         client = ClientBuilder.newBuilder().property(ClientProperties.FOLLOW_REDIRECTS, false).build();
         target = client.target(url);
         request = target.request(WILDCARD);
         Form form = composeForm();
         applyProperties();
-        return request.post(Entity.entity(form, APPLICATION_FORM_URLENCODED_TYPE));
+        response = request.post(Entity.entity(form, APPLICATION_FORM_URLENCODED_TYPE));
+        return response;
     }
 
     public String getAsString() {
-        return getRawResponse().readEntity(String.class);
+        String result = getRawResponse().readEntity(String.class);
+        response.close();
+        return result;
     }
 
     public JsonNode getMapped() throws IOException {
