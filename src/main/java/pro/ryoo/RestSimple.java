@@ -10,30 +10,18 @@ public class RestSimple {
     public static Config config = new Config();
 
     public static Get get(String url) {
-        if (config.isEmpty()) {
-            return new Get(url);
-        }
-        return new Get(url, config);
+        return config.isEmpty() ? new Get(url) : new Get(url, config);
     }
 
     public static Post post(String url) {
-        if (config.isEmpty()) {
-            return new Post(url);
-        }
-        return new Post(url, config);
+        return config.isEmpty() ? new Post(url) : new Post(url, config);
     }
 
     public static Put put(String url) {
-        if (config.isEmpty()) {
-            return new Put(url);
-        }
-        return new Put(url, config);
+        return config.isEmpty() ? new Put(url) : new Put(url, config);
     }
 
     public static Delete delete(String url) {
-        if (config.isEmpty()) {
-            return new Delete(url);
-        }
-        return new Delete(url, config);
+        return config.isEmpty() ? new Delete(url) : new Delete(url, config);
     }
 }
